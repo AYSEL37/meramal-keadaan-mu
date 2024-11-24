@@ -1,0 +1,63 @@
+import random
+import os
+import time
+
+# Fungsi untuk menampilkan pesan sambutan
+def welcome_message():
+    os.system('cls' if os.name == 'nt' else 'clear')  # Membersihkan layar (Windows atau Linux)
+    print("Selamat datang di peramal masa depan!")
+    time.sleep(1)
+    print("Kamu siap untuk melihat apa yang akan datang di masa depan?")
+    time.sleep(1)
+
+# Fungsi untuk memilih ramalan masa depan secara acak
+def fortune_telling():
+    predictions = [
+        "Di masa depan, kamu akan menemukan teman lama yg kamu cari selama ini.",
+        "Hati-hati, sebuah musibah akan datang entah kapan.",
+        "indonesia akan memenangkan piala dunia yg di menangkan oleh marselino.",
+        "Saat kamu mencari perkerja an dan stop menganggur.",
+        "kamu sedang membutuhkan uang kan ?, ya kerja lah mas.",
+        " kamu kedepan nya menjadi kriminal .",
+        "hari ini mungkin lagi sengsara, besok pun begitu juga.",
+        "kamu akan menjadi anak yang baik,mungkin.",
+        "kamu akan lulus dengan nilai tertinggi, jika kamu belajar😊",
+        "hal baik akan datang 50 tahun lagi😁",
+        "apakah anda ada masalah,berarti itu masalah mu bukan masalah ku",
+        "kamu lagi butuh pasangan yg kaya,cantik,pinter,rajin,dan soleh?,bangun mas jemuran basah kena hujan",
+        "kamu ingin diramal ?, solat mas jangan percaya tahayul ",
+        "alasan kamu tidak kaya-kaya,maka ny jangan main slot lah",
+        "besok teman mu akan meminjam uang 100rb",
+        "cewe cantik akan menghampiri mu, untuk mengasih uang karena kasihan pada mu"
+
+    ]
+    return random.choice(predictions)
+
+# Fungsi untuk meminta pengguna untuk memilih apakah ingin melihat ramalan lagi
+def ask_for_another_prediction():
+    while True:
+        user_input = input("Apakah kamu ingin melihat ramalan lain? (y/n): ").lower()
+        if user_input == 'y':
+            return True
+        elif user_input == 'n':
+            return False
+        else:
+            print("Masukkan pilihan yang valid (y/n).")
+
+# Fungsi utama untuk menjalankan ramalan
+def run_fortune_teller():
+    welcome_message()
+
+    while True:
+        print("\nMenebak masa depan...")
+        time.sleep(1)
+        print(f"Ramalan: {fortune_telling()}")
+        time.sleep(2)
+        
+        if not ask_for_another_prediction():
+            print("Terima kasih telah menggunakan peramal masa depan. Semoga hari-harimu cerah!")
+            break
+
+# Menjalankan aplikasi
+if __name__ == "__main__":
+    run_fortune_teller()
